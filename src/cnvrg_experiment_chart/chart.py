@@ -33,8 +33,8 @@ class ExperimentChart:
         key : str
             The title and reference name used for the chart
         chart_type : str
-            The type of chart to generate. Choices are: line todo: bar,
-            heatmap and scatter
+            The type of chart to generate. Choices are: line todo: bar, heatmap
+            and scatter
         group : string
             Not sure
         step : int
