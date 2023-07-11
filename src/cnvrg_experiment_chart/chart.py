@@ -26,7 +26,7 @@ class ExperimentChart:
     >>> chart.add_metric(series_name="index", data=[1,2,3])
     """
 
-    def __init__(self, experiment=None, **kwargs):
+    def __init__(self, **kwargs):
         """
         Parameters
         ----------
@@ -48,7 +48,7 @@ class ExperimentChart:
         min_val : int
             Minimum boundary for the Y axis
         colors : string
-            Not sure
+        Not sure, not valid with chart_type: line
         experiment: cnvrgv2.Experiment
             A cnvrg Experiment object. If you do not pass in, we assume you
             want us to create this on your behalf.
@@ -59,6 +59,7 @@ class ExperimentChart:
                 f"""Chart type must be one of the following strings:
                 {valid_types}"""
             )
+        self.experiment = kwargs.get("experiment", None)
         self.key = kwargs["key"]
         self.chart_type = kwargs["chart_type"]
         if self.chart_type == "line":
@@ -74,10 +75,8 @@ class ExperimentChart:
             min_val=kwargs.get("min_val", None),
             colors=kwargs.get("colors", None),
         )
-        if not experiment:
+        if not isinstance(self.experiment, Experiment):
             self.experiment = Experiment()
-        else:
-            self.experiment = experiment
 
     def create_chart(self):
         """
