@@ -30,6 +30,11 @@ podTemplate(yaml: '''
             tox --version
           '''
         }
+        stage('Run Tests') {
+          sh '''
+            tox
+          '''
+        }
       }
   }
 }
