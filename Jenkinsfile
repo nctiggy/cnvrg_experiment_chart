@@ -13,7 +13,6 @@ podTemplate(yaml: '''
 
 {
   node(POD_LABEL) {
-    stage('Python Testing') {
       checkout scmGit(
         branches: [[name: 'main']],
         userRemoteConfigs: [[url: 'https://github.com/nctiggy/cnvrg_experiment_chart.git']]
@@ -26,6 +25,5 @@ podTemplate(yaml: '''
           '''
         }
       }
-    }
   }
 }
