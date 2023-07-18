@@ -24,6 +24,13 @@ podTemplate(yaml: '''
             ls -ltra
           '''
         }
+        stage('Install tox') {
+          sh '''
+            python -m pip install pipx-in-pipx --user
+            pipx install tox
+            tox --version
+          '''
+        }
       }
   }
 }
