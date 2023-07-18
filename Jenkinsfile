@@ -26,7 +26,7 @@ podTemplate(yaml: '''
         }
         stage('Install tox') {
           sh '''
-            python -m pip install pipx-in-pipx --user
+            python3 -m pip install --user pipx
             pipx install tox
             tox --version
           '''
