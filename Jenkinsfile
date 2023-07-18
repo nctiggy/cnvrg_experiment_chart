@@ -14,7 +14,7 @@ podTemplate(yaml: '''
 {
   node(POD_LABEL) {
     stage('Python Testing') {
-      git branch: 'main' url: 'https://github.com/nctiggy/cnvrg_experiment_chart'
+      git 'https://github.com/nctiggy/cnvrg_experiment_chart'
       container('python') {
         stage('Python version') {
           sh '''
