@@ -24,8 +24,9 @@ podTemplate(yaml: '''
             ls -ltra
           '''
         }
-        stage('Install tox') {
+        stage('Install pre-reqs') {
           sh '''
+            apk add build-base
             pip install tox
             tox --version
           '''
