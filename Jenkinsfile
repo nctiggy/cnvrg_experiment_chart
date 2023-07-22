@@ -28,6 +28,8 @@ podTemplate(yaml: '''
           sh '''
             python --version
             ls -ltra
+            git --version
+            git remote show origin
           '''
         }
         stage('Run Tests') {
