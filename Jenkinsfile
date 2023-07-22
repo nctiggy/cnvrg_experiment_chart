@@ -14,8 +14,10 @@ podTemplate(yaml: '''
 {
   node(POD_LABEL) {
       checkout scmGit(
-        branches: [[name: 'main']],
-        userRemoteConfigs: [[url: 'https://github.com/nctiggy/cnvrg_experiment_chart.git']]
+        branches: [[name: '*/tags/*']],
+        userRemoteConfigs: [[
+            refspec: '+refs/tags/*’:’refs/remotes/origin/tags/*',
+            url: 'https://github.com/nctiggy/cnvrg_experiment_chart.git']]
         )
       container('python') {
         stage('Python version') {
@@ -27,7 +29,6 @@ podTemplate(yaml: '''
             git remote show origin
             git tag -l
             git describe
-            exit 1
           '''
         }
         stage('Run Tests') {
