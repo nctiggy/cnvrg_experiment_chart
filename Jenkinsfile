@@ -31,11 +31,14 @@ podTemplate(yaml: '''
             git describe
           '''
         }
-        stage('Run Tests') {
-          sh '''
-            tox -e lint
-            tox
-          '''
+        withCredentials([string(credentialsId: 'coverallsToken', variable: 'COVERALLS_REPO_TOKEN')]) {
+          stage('Run Tests') {
+            sh '''
+              export COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN
+              tox -e lint
+              tox
+            '''
+          }
         }
         stage('Build pypi package') {
           sh '''
