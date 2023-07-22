@@ -4,7 +4,13 @@ podTemplate(yaml: '''
     spec:
       containers:
       - name: python
-        image: python:3.11
+        image: nctiggy/python-build-image
+        command:
+        - sleep
+        args:
+        - 99d
+      - name: alpine
+        image: alpine
         command:
         - sleep
         args:
@@ -22,12 +28,6 @@ podTemplate(yaml: '''
           sh '''
             python --version
             ls -ltra
-          '''
-        }
-        stage('Install pre-reqs') {
-          sh '''
-            pip install tox
-            tox --version
           '''
         }
         stage('Run Tests') {
