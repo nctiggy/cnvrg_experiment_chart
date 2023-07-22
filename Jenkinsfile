@@ -24,6 +24,7 @@ podTemplate(yaml: '''
             ls -ltra
             git --version
             git remote show origin
+            git tag -l
           '''
         }
         stage('Run Tests') {
