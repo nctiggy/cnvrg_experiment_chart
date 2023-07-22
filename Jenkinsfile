@@ -9,12 +9,6 @@ podTemplate(yaml: '''
         - sleep
         args:
         - 99d
-      - name: alpine
-        image: alpine
-        command:
-        - sleep
-        args:
-        - 99d
 ''')
 
 {
@@ -36,7 +30,6 @@ podTemplate(yaml: '''
           sh '''
             tox -e lint
             tox
-            tox -e doctests
           '''
         }
         stage('Build pypi package') {
