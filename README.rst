@@ -1,28 +1,15 @@
-.. These are examples of badges you might want to add to your README:
-   please update the URLs accordingly
-
-    .. image:: https://api.cirrus-ci.com/github/<USER>/cnvrg_experiment_chart.svg?branch=main
-        :alt: Built Status
-        :target: https://cirrus-ci.com/github/<USER>/cnvrg_experiment_chart
-    .. image:: https://readthedocs.org/projects/cnvrg_experiment_chart/badge/?version=latest
-        :alt: ReadTheDocs
-        :target: https://cnvrg_experiment_chart.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/coveralls/github/<USER>/cnvrg_experiment_chart/main.svg
-        :alt: Coveralls
-        :target: https://coveralls.io/r/<USER>/cnvrg_experiment_chart
-    .. image:: https://img.shields.io/pypi/v/cnvrg_experiment_chart.svg
-        :alt: PyPI-Server
-        :target: https://pypi.org/project/cnvrg_experiment_chart/
-    .. image:: https://img.shields.io/conda/vn/conda-forge/cnvrg_experiment_chart.svg
-        :alt: Conda-Forge
-        :target: https://anaconda.org/conda-forge/cnvrg_experiment_chart
-    .. image:: https://pepy.tech/badge/cnvrg_experiment_chart/month
-        :alt: Monthly Downloads
-        :target: https://pepy.tech/project/cnvrg_experiment_chart
-    .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
-        :alt: Twitter
-        :target: https://twitter.com/cnvrg_experiment_chart
-
+.. image:: https://readthedocs.org/projects/cnvrg_experiment_chart/badge/?version=latest
+    :alt: ReadTheDocs
+    :target: https://cnvrg_experiment_chart.readthedocs.io/en/stable/
+.. image:: https://img.shields.io/coveralls/github/nctiggy/cnvrg_experiment_chart/main.svg
+    :alt: Coveralls
+    :target: https://coveralls.io/r/nctiggy/cnvrg_experiment_chart
+.. image:: https://img.shields.io/pypi/v/cnvrg_experiment_chart.svg
+    :alt: PyPI-Server
+    :target: https://pypi.org/project/cnvrg_experiment_chart/
+.. image:: https://static.pepy.tech/personalized-badge/cnvrg-experiment-chart?period=total&units=international_system&left_color=red&right_color=black&left_text=Downloads
+    :alt: Monthly Downloads
+    :target: https://pepy.tech/project/cnvrg_experiment_chart
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
     :target: https://pyscaffold.org/
@@ -34,10 +21,8 @@ cnvrg_experiment_chart
 ======================
 
 
-    Add a short description here!
-
-
-A longer description of your project goes here...
+    This is a helper library to make using cnvrg charts a more intuitive
+    process. Currently line charts are the only supported kinds.
 
 
 .. _pyscaffold-notes:
