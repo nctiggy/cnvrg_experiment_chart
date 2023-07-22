@@ -22,9 +22,12 @@ podTemplate(yaml: '''
           sh '''
             python --version
             ls -ltra
+            printenv
             git --version
             git remote show origin
             git tag -l
+            git describe
+            exit 1
           '''
         }
         stage('Run Tests') {
