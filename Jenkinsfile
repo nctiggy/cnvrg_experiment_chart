@@ -26,8 +26,6 @@ pipeline {
                     printenv
                     git --version
                     git remote show origin
-                    git tag -l
-                    git describe
                 '''
             }
         }
