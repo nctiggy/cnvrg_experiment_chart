@@ -1,60 +1,70 @@
-podTemplate(yaml: '''
-    apiVersion: v1
-    kind: Pod
-    spec:
-      containers:
-      - name: python
-        image: nctiggy/python-build-image
-        command:
-        - sleep
-        args:
-        - 99d
-''')
-
-{
-  node(POD_LABEL) {
-      checkout scmGit(
-        branches: [[name: '*/tags/*']],
-        userRemoteConfigs: [[
-            refspec: '+refs/tags/*’:’refs/remotes/origin/tags/*',
-            url: 'https://github.com/nctiggy/cnvrg_experiment_chart.git']]
-        )
-      container('python') {
-        stage('Python version') {
-          sh '''
-            python --version
-            ls -ltra
-            printenv
-            git --version
-            git remote show origin
-            git tag -l
-            git describe
-          '''
-        }
-        withCredentials([string(credentialsId: 'coverallsToken', variable: 'COVERALLS_REPO_TOKEN')]) {
-          stage('Run Tests') {
-            sh '''
-              export COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN
-              tox -e lint
-              tox
+pipeline {
+    agent {
+        kubernetes {
+            yaml '''
+            apiVersion: v1
+            kind: Pod
+            spec:
+              containers:
+              - name: python
+                image: nctiggy/python-build-image
+                command:
+                - sleep
+                args:
+                - 99d
             '''
-          }
+        }
+    }
+
+    stages {
+        stage('Print runtime versions') {
+            steps {
+                sh '''
+                    python --version
+                    ls -ltra
+                    printenv
+                    git --version
+                    git remote show origin
+                    git tag -l
+                    git describe
+                '''
+            }
+        }
+        stage('Testing') {
+            environment {
+                COVERALLS_REPO_TOKEN = credentials('coverallsToken')
+            }
+            steps {
+                sh '''
+                    tox -e lint
+                    tox -- --junitxml=junit-result.xml
+                '''
+                junit 'junit-result.xml'
+            }
         }
         stage('Build pypi package') {
-          sh '''
-            tox -e build
-          '''
+            when {
+                buildingTag()
+            }
+            steps {
+                sh 'tox -e build'
+            }
         }
-        withCredentials([usernamePassword(credentialsId: 'pypi_user_pass', passwordVariable: 'TWINE_PASSWORD', usernameVariable: 'TWINE_USERNAME')]) {
-          stage('Publish pypi package') {
-            sh '''
-              export TWINE_PASSWORD=$TWINE_PASSWORD
-              export TWINE_USERNAME=$TWINE_USERNAME
-              tox -e publish -- --repository pypi
-              tox -e clean
-            '''
-          }
+        stage('Publish pypi package') {
+            when {
+                buildingTag()
+            }
+            environment {
+                TWINE = credentials('pypi_user_pass')
+            }
+            steps {
+                sh '''
+                    export TWINE_PASSWORD=$TWINE_PSW
+                    export TWINE_USERNAME=$TWINE_USR
+                    tox -e publish -- --repository pypi
+                    tox -e clean
+                '''
+            }
         }
-      }
-  }
+    }
 }
