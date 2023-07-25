@@ -1,6 +1,7 @@
 pipeline {
     agent {
         kubernetes {
+            defaultContainer 'python'
             yaml '''
             apiVersion: v1
             kind: Pod
