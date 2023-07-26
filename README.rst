@@ -1,12 +1,9 @@
 .. image:: https://readthedocs.org/projects/cnvrg_experiment_chart/badge/?version=latest
     :alt: ReadTheDocs
     :target: https://cnvrg_experiment_chart.readthedocs.io/en/stable/
-.. image:: https://img.shields.io/coveralls/github/nctiggy/cnvrg_experiment_chart/main.svg
-    :alt: Coveralls
-    :target: https://coveralls.io/r/nctiggy/cnvrg_experiment_chart
-.. image:: https://img.shields.io/pypi/v/cnvrg_experiment_chart.svg
+.. image:: https://badge.fury.io/py/cnvrg-experiment-chart.svg
     :alt: PyPI-Server
-    :target: https://pypi.org/project/cnvrg_experiment_chart/
+    :target: https://badge.fury.io/py/cnvrg-experiment-chart
 .. image:: https://static.pepy.tech/personalized-badge/cnvrg-experiment-chart?period=total&units=international_system&left_color=red&right_color=black&left_text=Downloads
     :alt: Monthly Downloads
     :target: https://pepy.tech/project/cnvrg_experiment_chart

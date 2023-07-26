@@ -1,3 +1,20 @@
+def buildJobBlock(status_block) {
+    def block = [
+                    [
+                        "type": "section",
+                        "text": [
+                            "type": "mrkdwn",
+                            "text": "*Jenkins Build:* ${env.BUILD_TAG}/n*Github Branch:* ${env.BRANCH_NAME}"
+                        ]
+                    ],
+                    [
+                        "type": "divider"
+                    ],
+                    $status_block
+                ]
+    return $status_block
+}
+
 pipeline {
     agent {
         kubernetes {
