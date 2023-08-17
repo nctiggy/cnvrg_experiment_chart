@@ -48,7 +48,7 @@ class ExperimentChart:
         min_val : int
             Minimum boundary for the Y axis
         colors : string
-        Not sure, not valid with chart_type: line
+            Not sure, not valid with chart_type: line
         experiment: cnvrgv2.Experiment
             A cnvrg Experiment object. If you do not pass in, we assume you
             want us to create this on your behalf.
