@@ -1,6 +1,6 @@
-.. image:: https://readthedocs.org/projects/cnvrg_experiment_chart/badge/?version=latest
-    :alt: ReadTheDocs
-    :target: https://cnvrg_experiment_chart.readthedocs.io/en/stable/
+.. image:: https://readthedocs.org/projects/cnvrg-experiment-chart/badge/?version=stable
+    :target: https://cnvrg-experiment-chart.readthedocs.io/en/stable/?badge=stable
+    :alt: Documentation Status
 .. image:: https://badge.fury.io/py/cnvrg-experiment-chart.svg
     :alt: PyPI-Server
     :target: https://badge.fury.io/py/cnvrg-experiment-chart
