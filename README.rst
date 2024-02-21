@@ -10,7 +10,9 @@
 .. image:: https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold
     :alt: Project generated with PyScaffold
     :target: https://pyscaffold.org/
-
+.. image:: https://jenkins.web.craigcloud.io/buildStatus/icon?job=cnvrg_experiment_chart%2Fmain
+    :alt: Jenkins Build
+    :target: https://jenkins.web.craigcloud.io/job/cnvrg_experiment_chart/job/main/
 |
 
 ======================
